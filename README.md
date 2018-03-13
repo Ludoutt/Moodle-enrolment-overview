@@ -20,4 +20,4 @@ Under GNU GENERAL PUBLIC LICENSE  Version 3
 
 Simply get the script and copy it into your moodle/enrol directory
 
-Go to http://your_moodle_URL/enrol/instancesALL.php
+Go to http://your_moodle_URL/enrolall/instancesALL.php
