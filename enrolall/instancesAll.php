@@ -87,11 +87,13 @@ foreach ($courses as $course) {
 
         if (enrol_is_enabled($instance->enrol) && $plugin->can_hide_show_instance($instance)) {
             if ($instance->status == ENROL_INSTANCE_ENABLED) {
-                $edit[] = $OUTPUT->render(new pix_icon('t/hide', $strdisable, 'core', array('class' => 'iconsmall')));
+                $aurl = new moodle_url($url, array('action' => 'disable', 'instance' => $instance->id));
+                $edit[] = $OUTPUT->action_icon($aurl, new pix_icon('t/hide', $strdisable, 'core', array('class' => 'iconsmall')));
             } else if ($instance->status == ENROL_INSTANCE_DISABLED) {
                 // Changing the span css class.
                 $displayname = html_writer::tag('span', $displayname, array('class' => 'dimmed_text'));
-                $edit[] = $OUTPUT->render(new pix_icon('t/show', $strenable, 'core', array('class' => 'iconsmall')));
+                $aurl = new moodle_url($url, array('action' => 'enable', 'instance' => $instance->id));
+                $edit[] = $OUTPUT->action_icon($aurl, new pix_icon('t/show', $strenable, 'core', array('class' => 'iconsmall')));
             } else {
                 // Plugin specific state - do not mess with it!
                 $show = $OUTPUT->pix_url('t/show');
